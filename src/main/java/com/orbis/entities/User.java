@@ -8,7 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Data
-@Entity
+@Entity(name = "sys_user")
 public class User implements Person {
 
     @Id
