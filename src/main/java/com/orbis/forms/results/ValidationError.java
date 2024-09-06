@@ -1,7 +1,14 @@
 package com.orbis.forms.results;
 
 import lombok.Getter;
+/*
+    @Getter/@Setter
+    @ToString
+    @EqualsAndHashCode
+    @AllArgsConstructor
 
+    isso aqui susbtitui todos os métodos da classe
+*/
 @Getter
 public class ValidationError {
 
