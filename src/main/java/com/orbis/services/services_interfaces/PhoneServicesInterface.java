@@ -9,7 +9,11 @@ public interface PhoneServicesInterface extends ValidateServices {
 
     default Map<String, String> validatePhones(List<PhoneNumber> phoneNumbers) {
         Map<String, String> ret = new HashMap<>();
-
+        /*
+            Existe uma boa prática no php que eu gosto de reproduzir que é fazer 
+            um método só ter uma identação so for precisar de outra começa um novo método 
+            pra diminuir a complexidade léxica
+        */
         for (PhoneNumber phoneNumber : phoneNumbers) {
             boolean ddiCheck = checkDDI(phoneNumber.getPhoneDDI());
             if (!ddiCheck) {
