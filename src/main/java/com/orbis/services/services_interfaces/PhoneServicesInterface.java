@@ -1,3 +1,8 @@
+/*
+    é uma má pratica ter um underline no nome do pacote normamlente são só letras 
+    package com.orbis.services.interfaces;
+
+*/
 package com.orbis.services.services_interfaces;
 
 import com.orbis.entities.PhoneNumber;
