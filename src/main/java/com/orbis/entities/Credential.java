@@ -9,6 +9,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
 
 import lombok.Data;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Data
 @Entity
@@ -35,5 +37,6 @@ public class Credential {
 
     @ManyToOne
     @JoinColumn(name = "iduser", referencedColumnName = "iduser")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 }

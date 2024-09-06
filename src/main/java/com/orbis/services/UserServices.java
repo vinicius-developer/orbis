@@ -3,12 +3,14 @@ package com.orbis.services;
 import com.orbis.entities.PhoneNumber;
 import com.orbis.entities.User;
 import com.orbis.entities.interfaces.Person;
+import com.orbis.forms.FilterUserForm;
 import com.orbis.forms.UserForm;
 import com.orbis.forms.results.PersonFormResult;
 import com.orbis.repositories.PhoneNumberRepository;
 import com.orbis.repositories.UserRepository;
 import com.orbis.services.services_interfaces.PhoneServicesInterface;
 import com.orbis.services.services_interfaces.UserServicesInterface;
+import com.orbis.services.specifications.UserSpecification;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
@@ -101,5 +103,9 @@ public class UserServices implements UserServicesInterface, PhoneServicesInterfa
         } else {
             return repository.save(entity);
         }
+    }
+
+    public List<User> filterUsers(FilterUserForm filterForm) {
+        return userRepository.findAll(UserSpecification.filterByForm(filterForm));
     }
 }

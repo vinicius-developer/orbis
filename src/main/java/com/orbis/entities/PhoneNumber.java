@@ -11,6 +11,8 @@ import jakarta.persistence.JoinColumn;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDateTime;
 
@@ -24,6 +26,7 @@ public class PhoneNumber {
 
     @ManyToOne
     @JoinColumn(name = "iduser", referencedColumnName = "iduser")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     @Column(length = 3, name = "phone_ddi")

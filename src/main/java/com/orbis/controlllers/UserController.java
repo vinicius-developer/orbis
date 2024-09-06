@@ -2,6 +2,7 @@ package com.orbis.controlllers;
 
 import com.orbis.entities.User;
 import com.orbis.forms.AuthUserForm;
+import com.orbis.forms.FilterUserForm;
 import com.orbis.forms.UserForm;
 import com.orbis.forms.results.PersonFormResult;
 import com.orbis.repositories.UserRepository;
@@ -9,11 +10,9 @@ import com.orbis.services.CredentialServices;
 import com.orbis.services.UserServices;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -71,5 +70,10 @@ public class UserController {
         }else {
             return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         }
+    }
+
+    @PostMapping("list/user")
+    public Iterable<User> listUsers(@RequestBody FilterUserForm filterUserForm){
+       return userServices.filterUsers(filterUserForm);
     }
 }

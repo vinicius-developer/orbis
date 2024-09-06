@@ -1,6 +1,7 @@
 package com.orbis.repositories;
 
 import com.orbis.entities.User;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface UserRepository extends CrudRepository<User, Integer>, JpaSpecificationExecutor<User> {
 
     @Query("SELECT u FROM sys_user u WHERE u.cpf = :cpf")
     User findByCpf(String cpf);
